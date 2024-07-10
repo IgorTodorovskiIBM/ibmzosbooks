@@ -4,7 +4,7 @@ IBM
 GI13-5603-60
 
 Note Before using this information and the product it supports, read the information in "Notices" on page 121.
-This edition applies to IBM® z/OS® 3.1 (5655-ZOS) and to all subsequent releases and modifications until otherwise indicated in new editions. Last updated: 2024-05-17 © Copyright International Business Machines Corporation 2022, 2024. US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+This edition applies to IBMÂ® z/OSÂ® 3.1 (5655-ZOS) and to all subsequent releases and modifications until otherwise indicated in new editions. Last updated: 2024-05-17 Â© Copyright International Business Machines Corporation 2022, 2024. US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 
 Contents
 Figures................................................................................................................ vii
@@ -54,8 +54,8 @@ ix
 About this document
 The purpose of this document is to provide complete and detailed guidance and reference information. This information is used by system administrators who work with z/OS Data Set File System (DSFS).
 How this document is organized
-· Part 1, "DSFS administration guide," on page 1 provides guidance information for Data Set File System (DSFS).
-· Part 2, "DSFS administration reference," on page 57 provides reference information about system commands, DSFS commands, and the DSFS configuration options file.
+Â· Part 1, "DSFS administration guide," on page 1 provides guidance information for Data Set File System (DSFS).
+Â· Part 2, "DSFS administration reference," on page 57 provides reference information about system commands, DSFS commands, and the DSFS configuration options file.
 Conventions used in this book
 This document uses the following typographic conventions:
 Bold Bold words or characters represent system elements that you must enter into the system literally, such as commands.
@@ -70,18 +70,18 @@ Example Font Examples and information displayed by the system are printed using 
 Note: When you enter a command from this document that uses the backslash character (\), make sure that you immediately press the Enter key and then continue with the rest of the command. In most cases, the backslash has been positioned for ease of readability.
 # A pound sign is used to indicate a command is entered from the shell, specifically where root authority is needed (root refers to a user with a UID = 0).
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 xi
 
 z/OS information
-This information explains how z/OS references information in other documents and on the web. When possible, this information uses cross-document links that go directly to the topic in reference using shortened versions of the document title. For complete titles and order numbers of the documents for all products that are part of z/OS, see z/OS Information Roadmap. To find the complete z/OS library, go to IBM Documentation (www.ibm.com/docs/en/zos). Learning resources: Getting started with IBM zSystems (developer.ibm.com/learningpaths/get-startedibmz/) provides online learning about IBM Z® basics and Red Hat® Open Shift on IBM Z.
+This information explains how z/OS references information in other documents and on the web. When possible, this information uses cross-document links that go directly to the topic in reference using shortened versions of the document title. For complete titles and order numbers of the documents for all products that are part of z/OS, see z/OS Information Roadmap. To find the complete z/OS library, go to IBM Documentation (www.ibm.com/docs/en/zos). Learning resources: Getting started with IBM zSystems (developer.ibm.com/learningpaths/get-startedibmz/) provides online learning about IBM ZÂ® basics and Red HatÂ® Open Shift on IBM Z.
 xii z/OS: z/OS Data Set File System Administration
 
 How to provide feedback to IBM
 We welcome any feedback that you have, including comments on the clarity, accuracy, or completeness of the information. For more information, see How to send feedback to IBM.
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 xiii
 
@@ -93,30 +93,30 @@ Summary of changes for z/OS 3.1
 The following content is new, changed, or no longer included in z/OS 3.1.
 New
 The following content is new. December 2023 refresh
-· DSFS supports access to JES spool data sets in the primary JES subsystem. For more information, see Chapter 9, "JES spool data sets," on page 53 and "dsadm jobid" on page 106. "Applying required APARs" on page 18 and "Stopping DSFS" on page 19 are also updated. (APAR OA65560, which applies to z/OS 3.1 and z/OS 2.5)
-September 2023 · Support is added for extended attributes. For more information, see Chapter 6, "Extended attributes," on page 35.
+Â· DSFS supports access to JES spool data sets in the primary JES subsystem. For more information, see Chapter 9, "JES spool data sets," on page 53 and "dsadm jobid" on page 106. "Applying required APARs" on page 18 and "Stopping DSFS" on page 19 are also updated. (APAR OA65560, which applies to z/OS 3.1 and z/OS 2.5)
+September 2023 Â· Support is added for extended attributes. For more information, see Chapter 6, "Extended attributes," on page 35.
 Changed
 The following content is changed. May 2024 refresh
 The instructions are updated in "Steps for creating a BPXPRMxx entry for DSFS" on page 16. April 2024 refresh
-· "Starting DSFS" on page 19 is updated with additional information. February 2024 refresh
-· "Steps for installing and configuring DSFS" on page 15 is updated. December 2023 refresh
-· A recommendation is added to "Steps for creating a BPXPRMxx entry for DSFS" on page 16. October 2023 refresh
-· Minor updates are made. September 2023
-· Instructions for ServerPac installation are updated. For more information, see "Steps for installing and configuring DSFS" on page 15.
+Â· "Starting DSFS" on page 19 is updated with additional information. February 2024 refresh
+Â· "Steps for installing and configuring DSFS" on page 15 is updated. December 2023 refresh
+Â· A recommendation is added to "Steps for creating a BPXPRMxx entry for DSFS" on page 16. October 2023 refresh
+Â· Minor updates are made. September 2023
+Â· Instructions for ServerPac installation are updated. For more information, see "Steps for installing and configuring DSFS" on page 15.
 Deleted
 The following content is deleted.
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 xv
 
-September 2023 release · None.
+September 2023 release Â· None.
 xvi z/OS: z/OS Data Set File System Administration
 
 Part 1. DSFS administration guide
 This part of the document discusses guidance information for Data Set File System (DSFS).
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 1
 
@@ -129,7 +129,7 @@ Colony address space
 DSFS runs as a physical file system (PFS) in a z/OS UNIX colony address space. It cannot run inside the z/OS UNIX address space. For more information about colony address spaces, see Running a physical file system in a colony address space in z/OS UNIX System Services Planning.
 Supported data sets
 DSFS supports the following data sets:
-· Fixed and variable-length record physical sequential data sets (PS) · Partitioned data sets (PDS) · Partitioned data set extended (PDSE) · JES spool data sets
+Â· Fixed and variable-length record physical sequential data sets (PS) Â· Partitioned data sets (PDS) Â· Partitioned data set extended (PDSE) Â· JES spool data sets
 DSFS does not support variable-spanned record data sets. It does not allow access to encrypted data sets unless the utility file system data set is also encrypted. DSFS supports only cataloged data sets. If the catalog contains more than one entry for a data set, DSFS will use the entry in the master catalog. It does not support aliases, VSAM data sets, or migrated data sets. Because those data sets are not shown in the directory tree, they will not be accessible to DSFS users.
 Case sensitivity
 DSFS is a case-insensitive physical file system. File names and directory names are returned in lowercase. It also converts any input name to lowercase and stores it as lowercase. When DSFS interacts with the z/OS system through DFSMS, it converts the names to uppercase.
@@ -139,7 +139,7 @@ DSFS runs with the requesting application user credentials for all access to dat
 Utility file system
 DSFS requires the administrator to define a linear data set by using the DEFINE CLUSTER command with the ZFS keyword to define a utility file system. This file system is used to store the directory tree that is used to represent the accessed data sets as a file system tree and will cache POSIX byte-stream representations of the data sets that are being read and written by applications. Each system in a shared
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 3
 
@@ -161,10 +161,10 @@ All DSFS users have access to the root directory.
 Path directory
 The path directories determine the processing mode of data sets that are accessed through that path. These directories are automatically created by DSFS if they do not exist in the utility file system. Four processing modes (binary, record, text, and sysout) are available with DSFS. All users of DSFS are allowed access to a path directory.
 Binary (/bin) Data sets that are accessed by this path are treated by DSFS as binary data. When a data set is opened by DSFS on behalf of users who are accessing the data set through this path, DSFS reads the records from the data set. Next, it stores the records sequentially in a file in the utility file system as a POSIX byte stream. Updates made by applications to this file are stored in the utility file system file. When the application closes the file, DSFS writes the data to the data set, storing the bytes into sequential records in the data set.
-· For variable-length records, the maximum record size is used for each record except for the last record, which can be partial.
-· For fixed records, the last record is padded with binary zeros if the last record was short.
+Â· For variable-length records, the maximum record size is used for each record except for the last record, which can be partial.
+Â· For fixed records, the last record is padded with binary zeros if the last record was short.
 Record (/rec) Data sets that are accessed by this path are treated by DSFS as z/OS record format files. When it accesses a data set, DSFS prepends a 4-byte header to each record it reads from the data set and stores the updated records into the POSIX file that is used to represent the data set.
-· For fixed record data sets, each header must specify a length equal to the LRECL of the data set. · For variable-length data sets, each header is used to determine the size of the record that is written
+Â· For fixed record data sets, each header must specify a length equal to the LRECL of the data set. Â· For variable-length data sets, each header is used to determine the size of the record that is written
 to the data set.
 Text (/txt) Data sets that are accessed by this path are treated by DSFS as text files. Upon access to a data set, DSFS reads each record from the data set. If it is in fixed format, it strips the trailing blanks. For both fixed and variable record formats, it appends a newline character to the end of the record in the POSIX byte stream. Updates made by applications to this file are stored in the corresponding utility file system file. When applications close the file, DSFS scans the file's byte stream for newline characters, where each newline character delineates records to be written to the data set. The newline character is not written to the data set. For fixed-length record data sets, DSFS pads with blanks each record to ensure it matches the LRECL.
 Sysout (/sysout) This path is used to access JES spool data sets. For information about how DSFS handles JES spool data sets, see Chapter 9, "JES spool data sets," on page 53.
@@ -225,7 +225,7 @@ If errors are received during the storing of the file into the corresponding dat
 Data format exceptions
 When DSFS attempts to store the contents of a modified file in the utility file system back to the corresponding data set, it needs to scan the file contents for record boundaries. If a record is too large, then DSFS terminates the storing of the file, issues error messages that indicate the offset in the file with the problem and raises the SIGDSIOER signal. (For example, the record is larger than the LRECL of a fixed record data set or larger than the LRECL - 4 for a variable record data set.) Thus, not all POSIX access patterns can be handled by DSFS. Restriction: DSFS cannot store sparse files and records that are too large back into the data set.
 Application considerations for z/OS UNIX
-For applications that scan files in the z/OS UNIX file system tree, ensure that they can tolerate the additional support of DSFS accessing data sets with z/OS UNIX files. For example, the Tivoli® Asset Management Inquisitor might scan the entire z/OS UNIX file system tree and experience failures when it accesses DSFS files.
+For applications that scan files in the z/OS UNIX file system tree, ensure that they can tolerate the additional support of DSFS accessing data sets with z/OS UNIX files. For example, the TivoliÂ® Asset Management Inquisitor might scan the entire z/OS UNIX file system tree and experience failures when it accesses DSFS files.
 8 z/OS: z/OS Data Set File System Administration
 
 Directories
@@ -247,11 +247,11 @@ Chapter 1. Overview of z/OS Data Set File System 9
 Serialization and caching
 DSFS uses dynamic allocation and enqueues to serialize access between DSFS and users who are accessing data sets outside of DSFS. It also uses dynamic allocation and enqueues to serialize access between DSFS and users within DSFS who are accessing data sets by using different paths or different HLQ directories. If DSFS has the proper dynamic allocation and enqueues on a data set, it caches its contents in the utility file system. If it must release the dynamic allocation or enqueues, it will no longer cache the contents of a data set or a PDS/PDSE directory listing.
 DSFS obtains the following dynamic allocation and enqueues based on the object that is being accessed:
-· For physical sequential data sets (PS), DSFS allocates the data set OLD if it is being updated, removed, or renamed by DSFS users. If it is only being read by DSFS users, it allocates the data set SHR.
-· For PDS and PDSE directories, DSFS takes the following actions:
+Â· For physical sequential data sets (PS), DSFS allocates the data set OLD if it is being updated, removed, or renamed by DSFS users. If it is only being read by DSFS users, it allocates the data set SHR.
+Â· For PDS and PDSE directories, DSFS takes the following actions:
 - Obtains a DYNALLOC SHR ENQ on the PDS/PDSE data set itself. If the data set is being removed or renamed, the DYNALLOC ENQ is upgraded to OLD.
 - Obtains a DYNALLOC SHR ENQ for any PDS/PDSE members that are being accessed. - Obtains an SPFEDIT ENQ in EXCL mode if the member is being updated, removed, or renamed. If the
-member is being read, the SPFEDIT ENQ is obtained in SHR mode. · For PDS only, DSFS makes a RESERVE call on the DASD volume that contains the PDS if it must update
+member is being read, the SPFEDIT ENQ is obtained in SHR mode. Â· For PDS only, DSFS makes a RESERVE call on the DASD volume that contains the PDS if it must update
 the PDS in any fashion. If the call fails, then DSFS cannot update the PDS and will return an error message.
 Extended TIOT processing (XTIOT)
 DSFS uses extended TIOT (XTIOT) processing if it is enabled on the system. Otherwise, DSFS will not use it but this greatly limits the number of objects that can be accessed by z/OS UNIX users through DSFS. For this reason, extended TIOT processing is recommended. If extended TIOT is not used and the TIOT limit is reached on the system, then users cannot access data set based directories or files in the DSFS tree. For more information about enabling or disabling extended TIOT processing, see DEVSUPxx (device support options) in z/OS MVS Initialization and Tuning Reference.
@@ -273,8 +273,8 @@ For more information about attributes for the utility file system, see "dsadm fi
 UNIX attribute mapping
 A z/OS UNIX file system will typically handle attributes such as atime, matime, ctime, link count, and file mode in a POSIX-compliant manner. User applications can use the dsadm command to access these attributes command. They can also use standard z/OS UNIX commands or programming interfaces. For the POSIX files and directories representing data sets, DSFS must provide the same capability by mapping applicable data set attributes and storing them in its utility file system. In addition, DSFS supports retrieval and update of ISPF statistics for PDS and PDSE members even though some statistics may not have corresponding z/OS UNIX object attributes.
 DSFS updates the data set attributes with values from the UNIX attributes at store time. atime, mtime, ctime
-· For PDS and PDSE members, DSFS maps the moddate and modtime ISPF attributes to the UNIX atime, mtime, and ctime attributes.
-· For sequential data sets and PDS/PDSE, DSFS maps the atime, mtime, and ctime attributes to the last alt date in the corresponding catalog entry for the data set if it is used. Otherwise, it uses the last reference date for those fields.
+Â· For PDS and PDSE members, DSFS maps the moddate and modtime ISPF attributes to the UNIX atime, mtime, and ctime attributes.
+Â· For sequential data sets and PDS/PDSE, DSFS maps the atime, mtime, and ctime attributes to the last alt date in the corresponding catalog entry for the data set if it is used. Otherwise, it uses the last reference date for those fields.
 Mode DSFS sets the UNIX object type to a file for data set members and for PS data sets, and to a directory for PDS/PDSE data sets.
 Create time For new data set members, DSFS saves the date of the UNIX create time in the cjdate field of the ISPF statistics for the member. For PS/PDS/PDSE, it uses the creation_date from the catalog entry for the creation time.
 Length and block size These UNIX attributes are the space information for the object in the utility file system. They are the length of the data set object after it has been mapped to a UNIX object. For files, this means how large it is after the data was converted from the data set format to POSIX byte stream format, which is dependent on the path that is chosen to access the data set. The block size for DSFS is always 1 K and the number of blocks is always shown in 1 K units.
@@ -289,22 +289,22 @@ DSFS increments the modification number of the member each time it is stored by 
 ISPF extended statistics
 DSFS also updates the extended ISPF statistics for a data set member if the ISPF_EXTENDED_STATISTICS parameter is enabled. In this case, it also updates the extended Initlines and Curlines statistics.
 DSFS background tasks
-DFSMS and many SAF calls require work to be performed by DSFS tasks. Direct DFSMS calls by z/OS UNIX users are not allowed. To facilitate this, DSFS runs much of the DFSMS calls and SAF calls on DSFS worker tasks. · The security pool handles SAF calls and its size is controlled by the SECURITY_POOL_SIZE parameter. · The directory pool handles catalog and PDS/PDSE calls. The size of the directory pool is controlled by
-the DIRECTORY_POOL_SIZE parameter. · The file IO pool handles I/O to PS data sets and PDS/PDSE members and its size is controlled by the
-IO_POOL_SIZE parameter. · The sysout directory pool handles job-related queries by using the subsystem interface (SSI). The size of
-the sysout directory pool is controlled by the SYSOUT_DIRECTORY_POOL_SIZE parameter. · The sysout IO pool handles IO to JES spool data sets and its size is controlled by the
+DFSMS and many SAF calls require work to be performed by DSFS tasks. Direct DFSMS calls by z/OS UNIX users are not allowed. To facilitate this, DSFS runs much of the DFSMS calls and SAF calls on DSFS worker tasks. Â· The security pool handles SAF calls and its size is controlled by the SECURITY_POOL_SIZE parameter. Â· The directory pool handles catalog and PDS/PDSE calls. The size of the directory pool is controlled by
+the DIRECTORY_POOL_SIZE parameter. Â· The file IO pool handles I/O to PS data sets and PDS/PDSE members and its size is controlled by the
+IO_POOL_SIZE parameter. Â· The sysout directory pool handles job-related queries by using the subsystem interface (SSI). The size of
+the sysout directory pool is controlled by the SYSOUT_DIRECTORY_POOL_SIZE parameter. Â· The sysout IO pool handles IO to JES spool data sets and its size is controlled by the
 SYSOUT_IO_POOL_SIZE parameter.
 12 z/OS: z/OS Data Set File System Administration
 
 Tailoring high-level qualifiers
-The administrator can use the HLQ_LIST and HLQ_MODE parameters to tailor the HLQ directories that can be accessed in its path directories, which can be /txt, /bin, or /rec. · The HLQ_LIST lists the HLQ directory names to be excluded from DSFS user access. · The HLQ_MODE parameter indicates that the list is a list of excluded HLQs. For example:
+The administrator can use the HLQ_LIST and HLQ_MODE parameters to tailor the HLQ directories that can be accessed in its path directories, which can be /txt, /bin, or /rec. Â· The HLQ_LIST lists the HLQ directory names to be excluded from DSFS user access. Â· The HLQ_MODE parameter indicates that the list is a list of excluded HLQs. For example:
 HLQ_MODE=EXCLUDE HLQ_LIST=JOE,MARY,TOM HLQ_LIST=SCOTT.FILE1,SCOTT.FILE2
 HLQ_LIST is an exclude list in which the HLQs JOE, MARY, TOM are not allowed in the DSFS tree. User access to those HLQs is prevented in DSFS no matter which path is chosen. Data sets with HLQ SCOTT can be accessed as long as their names do not begin with SCOTT.FILE1 or SCOTT.FILE2. Restriction: The HLQ_LIST and HLQ_MODE options do not apply to sysout HLQ directory names.
 Program module support
-DSFS supports executable PDS/PDSE modules but they must be defined with RECFM=U. Those members are called program modules. The data sets might also contain nonexecutable data members, which DSFS does not support. Program modules may also be referred to as program objects for PDSE data sets and load modules for PDS data sets. · Program module data sets are only accessible from the /bin path of the DSFS file system tree. · PDS data sets can simultaneously contain load modules and data members. DSFS only displays load
-modules. Other members are not displayed in the file system tree. If a PDS defined with RECFM=U does not contain any load modules, it will appear empty in the DSFS file system tree. · PDSE data sets can contain either program objects or data members, but not both. If a PDSE data set is defined with RECFM=U, DSDF will display them only if they contain program objects. If a PDSE defined with RECFM=U contains nonexecutable data members, it is not displayed in the DSFS file system tree. · PDSE program objects cannot be placed into PDS data sets if they incorporate program management features. When you attempt to execute this type of operation, you will receive the following error:
+DSFS supports executable PDS/PDSE modules but they must be defined with RECFM=U. Those members are called program modules. The data sets might also contain nonexecutable data members, which DSFS does not support. Program modules may also be referred to as program objects for PDSE data sets and load modules for PDS data sets. Â· Program module data sets are only accessible from the /bin path of the DSFS file system tree. Â· PDS data sets can simultaneously contain load modules and data members. DSFS only displays load
+modules. Other members are not displayed in the file system tree. If a PDS defined with RECFM=U does not contain any load modules, it will appear empty in the DSFS file system tree. Â· PDSE data sets can contain either program objects or data members, but not both. If a PDSE data set is defined with RECFM=U, DSDF will display them only if they contain program objects. If a PDSE defined with RECFM=U contains nonexecutable data members, it is not displayed in the DSFS file system tree. Â· PDSE program objects cannot be placed into PDS data sets if they incorporate program management features. When you attempt to execute this type of operation, you will receive the following error:
 IEW2606S 4B39 MODULE INCORPORATES PROGRAM MANAGEMENT FEATURES AND CANNOT BE SAVED IN LOAD MODULE FORMAT
-· Program modules are not compatible with encrypted data sets. An encrypted UTFS can still be used to access load modules in unencrypted data sets.
+Â· Program modules are not compatible with encrypted data sets. An encrypted UTFS can still be used to access load modules in unencrypted data sets.
 When you create data sets defined with RECFM=U to contain program modules, you need to consider what constitutes a valid data set that is compatible with program modules. For more information, see Starting the binder in z/OS MVS Program Management: User's Guide and Reference.
 Chapter 1. Overview of z/OS Data Set File System 13
 
@@ -313,7 +313,7 @@ Chapter 1. Overview of z/OS Data Set File System 13
 Chapter 2. Installing and configuring DSFS
 
 z/OS Data Set File System (DSFS) is a base element of z/OS. To use the DSFS support, you must configure the support on the system. Configuration includes the following administrative tasks:
-· Setting up DSFS to run in a colony address space. · Defining the DSFS physical file system to z/OS UNIX. · Creating or updating the DSFS parameter data set IDFFSPRM. · Defining the DSFS utility file system. · Creating the mount point for DSFS. · Adding a MOUNT statement in the BPXPRMxx member to mount the DSFS utility file system at IPL.
+Â· Setting up DSFS to run in a colony address space. Â· Defining the DSFS physical file system to z/OS UNIX. Â· Creating or updating the DSFS parameter data set IDFFSPRM. Â· Defining the DSFS utility file system. Â· Creating the mount point for DSFS. Â· Adding a MOUNT statement in the BPXPRMxx member to mount the DSFS utility file system at IPL.
 
 Steps for installing and configuring DSFS
 
@@ -354,7 +354,7 @@ more information about specifying DSFS user IDs, see "Defining the DSFS user ID"
 
 ADDGROUP DSFSGRP SUPGROUP(SYS1) ADDUSER DSFS DFLTGRP(DSFSGRP) AUTHORITY(USE) UACC(NONE) RDEFINE STARTED DSFS.** STDATA(USER(DSFS))
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 15
 
@@ -366,8 +366,8 @@ As part of installing and configuring DSFS, you need to create a BPXPRMxx entry 
 FILESYSTYPE TYPE(DSFS) ENTRYPOINT(IDFFSCM) ASNAME(DSFS)
 If there is no BPXPRMxx parmlib member that contains a FILESYSTYPE statement for DSFS, you might receive message BPXF218I. To store data state allocation above the 16 MB line, specify SWA(ABOVE) in the BPXPRMxx parmlib member. For more information about the SWA parmlib statement, see BPXPRMxx (z/OS UNIX System Services parameters) in z/OS MVS Initialization and Tuning Reference. _______________________________________________________________ 2. Update the IEASYSxx parmlib member to contain the OMVS=(xx,yy) parameter for future IPLs. _______________________________________________________________ 3. Recommended: To eliminate the possibility of the JES spool filling up from output lines associated with DSFS, specify SUB=MSTR as in the following example:
 FILESYSTYPE TYPE(DSFS) ENTRYPOINT(IDFFSCM) ASNAME(DSFS,'SUB=MSTR')
-With that specification, DSFS will not run under JES control or interfere with JES shutdown. _______________________________________________________________ 4. Recommended: At this point, you might not know whether you want to change some configuration options. In case you would like to change them later, you should create an "empty" configuration file now. Do not specify any options in the empty configuration file. It must contain only one line, a comment that is an asterisk (*) in column 1. To create the configuration file, choose one of the following methods. · Use a DD card (IDFZPRM) to identify the data set. The IDFZPRM DDNAME identifies the optional
-DSFS configuration file. For now, it is suggested that this DD refer to a PDS with a member called IDFFSPRM that has a single line that begins with an asterisk (*) in column 1. Subsequent modifications can be made to the IDFFSPRM member. For more information, see "Using an IDFZPRM DD file in the DSFS PROC" on page 17. You can modify the IDFZPRM member at any time. · Put the options in the IDFPRMxx parmlib member. If you select this option, you cannot have an IDFZPRM DD statement in the DSFS PROC. In the BPXPRMxx parmlib member, specify the suffixes in the FILESYSTYPE statement of the IDFPRMxx members that contain the DSFS configuration options. The following example would be used if the configuration options were in members IDFPRM01, IDFPRM02 and IDFPRM03
+With that specification, DSFS will not run under JES control or interfere with JES shutdown. _______________________________________________________________ 4. Recommended: At this point, you might not know whether you want to change some configuration options. In case you would like to change them later, you should create an "empty" configuration file now. Do not specify any options in the empty configuration file. It must contain only one line, a comment that is an asterisk (*) in column 1. To create the configuration file, choose one of the following methods. Â· Use a DD card (IDFZPRM) to identify the data set. The IDFZPRM DDNAME identifies the optional
+DSFS configuration file. For now, it is suggested that this DD refer to a PDS with a member called IDFFSPRM that has a single line that begins with an asterisk (*) in column 1. Subsequent modifications can be made to the IDFFSPRM member. For more information, see "Using an IDFZPRM DD file in the DSFS PROC" on page 17. You can modify the IDFZPRM member at any time. Â· Put the options in the IDFPRMxx parmlib member. If you select this option, you cannot have an IDFZPRM DD statement in the DSFS PROC. In the BPXPRMxx parmlib member, specify the suffixes in the FILESYSTYPE statement of the IDFPRMxx members that contain the DSFS configuration options. The following example would be used if the configuration options were in members IDFPRM01, IDFPRM02 and IDFPRM03
 FILESYSTYPE TYPE(DSFS) ENTRYPOINT(IDFFSCM) ASNAME(DSFS,'SUB=MSTR') PARM('PRM=(01,02,03)')
 For more information about the different methods of specifying a DSFS configuration file, see "(Optional) Steps for creating or updating the DSFS configuration file" on page 17. For more
 16 z/OS: z/OS Data Set File System Administration
@@ -380,7 +380,7 @@ DSFS requires a utility file system, which is defined by the IDCAMS DEFINE CLUST
 (Optional) Steps for creating or updating the DSFS configuration file
 The DSFS configuration file (IDFPRMxx or IDFFSPRM) is optional. To specify the file, either use IDFPRMxx in the parmlib or use an IDFZPRM DD statement in the PROC that is used to start the address space where DSFS is running. It is recommended that you create an empty configuration file in case one is needed in the future. Options are only required in the configuration file if you want to override the default DSFS options. Important: : Do not specify any options in the empty configuration line. It must contain only one line. That line is a comment, which is an asterisk (*) in column 1.
 Specifying IDFPRMxx in the parmlib
-As the preferred alternative to the IDFZPRM DD statement, you can specify a configuration file as a true parmlib member. · The member has the name IDFPRMxx, where xx is specified in the parmlib member list. · Omit the IDFZPRM DD statement in the PROC that is used to start the address space in which DSFS will
+As the preferred alternative to the IDFZPRM DD statement, you can specify a configuration file as a true parmlib member. Â· The member has the name IDFPRMxx, where xx is specified in the parmlib member list. Â· Omit the IDFZPRM DD statement in the PROC that is used to start the address space in which DSFS will
 run. For more information about specifying the IDFPRMxx member to be used when DSFS is initialized, see Chapter 12, "The DSFS configuration file (IDFPRMxx or IDFFSPRM)," on page 111.
 Using an IDFZPRM DD file in the DSFS PROC
 If you use the IDFZPRM DD statement, the data set to which it points must have a record format of FB with a record length of 80. The block size can be any multiple of 80 that is appropriate for the device. A sample IDFFSPRM is provided in hlq.SIOESAMP(IDFFSPRM). For a description of the IDFFSPRM options, see "Processing options for IDFFSPRM and IDFPRMxx" on page 112. Update the IDFZPRM DD
@@ -392,8 +392,8 @@ If you are running a sysplex, you must have different DSFS configuration files f
 IDFZPRM DD DSN=SYS4.&SYSNAME..PARMLIB(IDFFSPRM),DISP=SHR
 For more information about the DSFS configuration options file, see "Processing options for IDFFSPRM and IDFPRMxx" on page 112.
 Defining the DSFS user ID
-You can specify DSFS as the user ID, or you can specify a user ID other than DSFS to run the DSFS started task if it is defined with the same RACF characteristics as in "Steps for installing and configuring DSFS" on page 15. For example, you could use the ZFS user ID since it would likely have the same RACF characteristics. · The DSFS user ID must have at least ALTER authority to any VSAM linear data sets that are used as a
-utility file system. · The DSFS user ID must also have at least READ access to any CSFKEYS profiles for any utility file
+You can specify DSFS as the user ID, or you can specify a user ID other than DSFS to run the DSFS started task if it is defined with the same RACF characteristics as in "Steps for installing and configuring DSFS" on page 15. For example, you could use the ZFS user ID since it would likely have the same RACF characteristics. Â· The DSFS user ID must have at least ALTER authority to any VSAM linear data sets that are used as a
+utility file system. Â· The DSFS user ID must also have at least READ access to any CSFKEYS profiles for any utility file
 systems with key labels. If ICSF is configured with CHECKAUTH(YES), the DSFS user ID must also have at least READ access to the CSFKRR2 CSFSERV profile. For more information about the CSFKEYS and CSFSERV profiles and the encryption of data sets, see Data set encryption in z/OS DFSMS Using Data Sets. As an alternative to permitting the DSFS user ID to all the necessary security profiles, you can assign the TRUSTED attribute to the DSFS started task.
 Creating the root directory
 The mount point for DSFS is /dsfs. If this directory does not exist in the root file system, then it must be created. Use a permission setting of 755.
@@ -417,12 +417,12 @@ When an LPAR is shut down without the orderly shutdown of DSFS, recovery actions
 r 1,r
 If you want DSFS to remain stopped, reply i to remove the prompt. In this case, DSFS can be redefined later with the SETOMVS RESET=(xx) operator command. If you plan to restart DSFS, reply r to the message.
 If DSFS has an internal failure, it does not terminate unless the utility file system is damaged or the failure would affect multiple subcomponents of DSFS. If the error might result in damage to the utility file system, DSFS will disable access to the file system and then restart.
-· In a shared file system environment, z/OS UNIX locally remounts the DSFS file system automatically. · In a non-shared file system environment, the operator must manually remount DSFS.
+Â· In a shared file system environment, z/OS UNIX locally remounts the DSFS file system automatically. Â· In a non-shared file system environment, the operator must manually remount DSFS.
 If the error is severe and might affect multiple internal DSFS subcomponents, DSFS automatically stops and then requests that z/OS UNIX restart it.
-· For a shared file system environment, z/OS UNIX automatically remounts the utility file system. · For a non-shared environment, z/OS UNIX does not remount the utility file system. The administrator
+Â· For a shared file system environment, z/OS UNIX automatically remounts the utility file system. Â· For a non-shared environment, z/OS UNIX does not remount the utility file system. The administrator
 must manually remount it.
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 19
 
@@ -481,7 +481,7 @@ Data Set
 The diagram shows that application requests on each system are forwarded through z/OS UNIX to the local DSFS. There is no function shipping. To access z/OS data sets on a system, DSFS must be active on the system and a utility file system must be mounted. No function shipping will occur if the utility file system is not mounted on a system. In other words, if the utility file system is not mounted on a given system, DSFS will not be able to access any z/OS data sets on that system.
 The diagram also depicts the naming conventions that are used for the utility file system. Each system running DSFS must have a VSAM linear data set defined for it to use as its utility file system. In the diagram, a utility file system with the name A.UTFS is mounted in the sysplex. Systems SY1 and SY2 are using the default naming convention. System SY3 is using the UTFS_NAME option in the IDFFSPRM configuration file. (For more information about defining these linear data sets and mounting them, see
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 21
 
@@ -500,14 +500,14 @@ Extended format. If a key label is used with the utility file system, then defin
 Extended addressability If you want the utility file system to be larger than 4 GB, then use SMS DATACLASS for extended addressability.
 Name DSFS requires that each system have its own uniquely named VSAM LDS to use as a utility file system. By default, DSFS has a specific naming convention that requires the system name to be the last qualifier in the name of the data set. In a shared file system environment, the prior qualifiers must match the utility file system data set names that are being used by the other sysplex members. The default naming convention can be overridden by specifying the UTFS_NAME option in the IDFFSPRM file. The value of this option will be used as the full name of the VSAM LDS. For an example of utility file system data set names in a shared file system environment, see "Naming convention" on page 25.
 Additional requirements
-· DSFS must also have access to the defined data set.
-· The DSFS user ID must have at least ALTER authority for any VSAM linear data sets that is used as a utility file system.
-· Utility file system data sets with key labels have additional requirements as described in "Allowing for encryption of the utility file system" on page 24.
+Â· DSFS must also have access to the defined data set.
+Â· The DSFS user ID must have at least ALTER authority for any VSAM linear data sets that is used as a utility file system.
+Â· Utility file system data sets with key labels have additional requirements as described in "Allowing for encryption of the utility file system" on page 24.
 22 z/OS: z/OS Data Set File System Administration
 
 Allowing for dynamic growth of the utility file system
-DSFS will attempt to dynamically grow a utility file system that is full. It extends and formats the utility file system in 25 MB increments as needed to satisfy demand for space on the utility file system. · If the current extents are full, DSFS attempts to create a new extent (or extents) for the utility file
-system and format 25 MB of that extent or extents. · If there is more space in the last extent to allow 25 MB to be formatted, then DSFS uses that space and
+DSFS will attempt to dynamically grow a utility file system that is full. It extends and formats the utility file system in 25 MB increments as needed to satisfy demand for space on the utility file system. Â· If the current extents are full, DSFS attempts to create a new extent (or extents) for the utility file
+system and format 25 MB of that extent or extents. Â· If there is more space in the last extent to allow 25 MB to be formatted, then DSFS uses that space and
 avoids extending the data set. DSFS issues message IDFS00096I when attempting to grow the utility file system and message IDFS00095I if the file system is successfully grown. If the utility file system grow attempt failed, it issues message IDFS00094E. To allow DSFS to extend the data set, a secondary space allocation is required, possibly with additional candidate volumes to allow extension if the primary DASD volume is full. An example of a definition that allows for dynamic growth is shown in the following figure:
 Figure 2. Defining a utility file system with secondary extents NAME
 The VSAM cluster name to give to the utility file system. Guidelines to follow when naming the utility file system are described in "Naming convention" on page 25. VOLUMES The administrator specified multiple candidate volumes, which will allow for this utility file system to be grown much larger if needed. DATACLASS The administrator requested an SMS DATACLASS that allows for extended addressability, which enables the utility file system data set to be larger than 4 GB. CYL (P, S) The administrator provided a secondary extent value to allow dynamic growth of the data set. ZFS This keyword is required for utility file system definitions.
@@ -525,8 +525,8 @@ Before you assign a key label to a data set, these requirements must be met. 1. 
 The following example shows the creation of a DSFS utility file system with a key label.
 Figure 4. Creating a utility file system with a key label Tip: Extended format VSAM data sets record the encryption status for each control interval in the data set, which provides improved integrity checking. If you are using a key label, define the utility file system data set with the extended format option.
 Naming convention
-DSFS requires a unique VSAM linear data set on each system to use as its utility file system. To facilitate a single /dsfs mount point in a shared file system environment, DSFS adheres to the following rules for deriving the names of these linear data sets. · If the UTFS_NAME option in the IDFFSPRM (or IDFPRMxx) configuration file is specified, its value is
-the name of the VSAM LDS to be used on this system. If the configuration file is shared with multiple systems, it is recommended that this value contain a system variable that will make the name a unique name in the shared file system environment. · If the UTFS_NAME option does not have a value, the default name that DSFS constructs will be the value of the file system parameter on the MOUNT command, a period, and the local system name as the last qualifier. In Figure 4 on page 25, the system name is SYSTEM1. Hence, the value that is specified as the file system parameter on the MOUNT command must be UTILITY.FS in order for the VSAM linear data set UTILITY.FS.SYSTEM1 to be used as the utility file system name on SYSTEM1.
+DSFS requires a unique VSAM linear data set on each system to use as its utility file system. To facilitate a single /dsfs mount point in a shared file system environment, DSFS adheres to the following rules for deriving the names of these linear data sets. Â· If the UTFS_NAME option in the IDFFSPRM (or IDFPRMxx) configuration file is specified, its value is
+the name of the VSAM LDS to be used on this system. If the configuration file is shared with multiple systems, it is recommended that this value contain a system variable that will make the name a unique name in the shared file system environment. Â· If the UTFS_NAME option does not have a value, the default name that DSFS constructs will be the value of the file system parameter on the MOUNT command, a period, and the local system name as the last qualifier. In Figure 4 on page 25, the system name is SYSTEM1. Hence, the value that is specified as the file system parameter on the MOUNT command must be UTILITY.FS in order for the VSAM linear data set UTILITY.FS.SYSTEM1 to be used as the utility file system name on SYSTEM1.
 Mounting the utility file system
 Mounting the utility file system means providing a name to z/OS UNIX that collectively represents the utility file systems that are being used. By default, the name that is used on the MOUNT command should be the VSAM LDS name without its last qualifier, which is the system name. If needed, this default can be overridden by specifying the UTFS_NAME option in the IDFFSPRM file. The value that is specified is the name of the VSAM LDS to be used on the local system as the utility file system name.
 The shared file system environment
@@ -598,8 +598,8 @@ Chapter 4. Managing the utility file system 29
 
 Chapter 5. Creating new data sets with DSFS
 DSFS users can create new files and directories under the HLQ directory or data set portions of the DSFS tree. A new file represents either a PS or PDS/PDSE member. A new directory represents a PDS/PDSE.
-· If the parent directory in the DSFS tree represents a PDS or PDSE, DSFS calls DFSMS to create the new member. The name must be 8 characters or less and follow DFSMS naming rules.
-· If the parent directory is an HLQ directory in the DSFS tree, DSFS calls BPXWDYN to create the new data set. The type of data set created, whether PS or PDS/PDSE, can be specified by using creation parameters.
+Â· If the parent directory in the DSFS tree represents a PDS or PDSE, DSFS calls DFSMS to create the new member. The name must be 8 characters or less and follow DFSMS naming rules.
+Â· If the parent directory is an HLQ directory in the DSFS tree, DSFS calls BPXWDYN to create the new data set. The type of data set created, whether PS or PDS/PDSE, can be specified by using creation parameters.
 Saving creation parameters for data sets
 With the dsadm createparm command, users can save two creation parameter strings for each HLQ directory, one to be used with creation of PS data sets and one to be used with creation of PDS/PDSE data sets. A creation parameter string is a string of BPXWDYN parameters. Multiple data sets can be created under an HLQ directory. DSFS uses BPXWDYN to create the data set. For information about the syntax and the allowed parameters in the stdin, see BPXWDYN: A text interface to dynamic allocation and dynamic output in z/OS Using REXX and z/OS UNIX System Services.
 A creation parameter string can be saved for new files (PS) and another creation parameter string can be saved for new directories (PDS/PDSE). These parameters are saved permanently in the utility file system for the HLQ directory. You can change these parameters by reissuing the dsadm createparm command. After the command is reissued, data sets that use different creation parameters can be created. Each path can have its own creation parameters for the same HLQ directory because those are represented as different directories in the utility file system directory tree. When data sets are created that can be accessed through multiple HLQ directories, these names will appear in those HLQ directories when they are refreshed according to DIRECTORY_REFRESH_TIMEOUT.
@@ -611,7 +611,7 @@ In the example, the user has issued two dsadm createparm commands for the USER1 
 psmodel In the first command, file creation parameters indicate that when an application attempts to create a file for HLQ USER1, a variable blocked (VB) data set should be created with 20 cylinders primary extent and a secondary size of 10 cylinders. The logical record length is 300 bytes and the system is allowed to choose the optimal block size for the records.
 pdsmodel In the second command, the directory creation parameters indicate that when an application attempts to create a directory for the HLQ USER1, then a fixed length blocked (FB) PDSE (because the dsntype is library) with a logical record length of 180 bytes should be created. The primary extent
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 31
 
@@ -619,7 +619,7 @@ pdsmodel In the second command, the directory creation parameters indicate that 
 DSFS restrictions to BPXWDYN text strings in creation parameters
 DSFS imposes further restrictions to what is allowed in a BPXWDYN text string for creation parameters. dsorg
 DSFS supports only PS, PDS, and PDSE data sets. The only allowed values for dsorg are PS (physical sequential) or PO (PDS or PDSE). recfm DSFS supports only fixed and variable record data sets and not variable spanned. It accepts only F, FB, FBA, FS, FBS, V, VB, VBA, and U for recfm values. FS and FBS are supported only by PS data sets. U is supported only by PDS or PDSE data sets. dsntype DSFS supports the following types: pdsmodel
-· PDS · LIBRARY | LIBRARY, 1 | LIBRARY,2 psmodel · BASIC · LARGE · EXTREQ · EXTPREF blksize and lrecl When FB or FBS is specified for recfm, then blksize must be evenly divisible by lrecl. If users attempt to create a file (hence a PS data set) in an HLQ directory that does not have file creation parameters, they will receive a failure with an EINVAL return code. If they create a directory in an HLQ directory (hence a PDS or PDSE) that does not have directory creation parameters, they will receive a failure with an EINVAL return code. Additionally, the resulting data set name must conform to DFSMS naming rules. (The data set name is the HLQ directory name added as a prefix to the name of the file or directory that the user is creating.) CAUTION: Be careful when you save the creation parameters because BPXWDYN allows the creation of data sets that might not be usable. In this case, DFSMS will not allow the data set to be opened with the QSAM access method, which is what DSFS uses for file IO.
+Â· PDS Â· LIBRARY | LIBRARY, 1 | LIBRARY,2 psmodel Â· BASIC Â· LARGE Â· EXTREQ Â· EXTPREF blksize and lrecl When FB or FBS is specified for recfm, then blksize must be evenly divisible by lrecl. If users attempt to create a file (hence a PS data set) in an HLQ directory that does not have file creation parameters, they will receive a failure with an EINVAL return code. If they create a directory in an HLQ directory (hence a PDS or PDSE) that does not have directory creation parameters, they will receive a failure with an EINVAL return code. Additionally, the resulting data set name must conform to DFSMS naming rules. (The data set name is the HLQ directory name added as a prefix to the name of the file or directory that the user is creating.) CAUTION: Be careful when you save the creation parameters because BPXWDYN allows the creation of data sets that might not be usable. In this case, DFSMS will not allow the data set to be opened with the QSAM access method, which is what DSFS uses for file IO.
 Displaying saved creation parameters
 The user can query the creation parameters for an HLQ directory with the dsadm fileinfo command. This command shows the creation parameters (if saved) along with additional information about the object in the DSFS tree. dsadm fileinfo is a general user command. Any user with read access to the object that is being queried can issue it. If the user is querying an HLQ directory, then the user must have authority to list data sets for that HLQ directory name. Example output from the dsadm fileinfo command is shown as follows.
 32 z/OS: z/OS Data Set File System Administration
@@ -681,7 +681,7 @@ Normal completion cc: xxxx Non-zero completion code cc: ABENDed cc: xxxx Failed 
 
 xxxx
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 35
 
@@ -795,8 +795,8 @@ Length information
 The fields in the following example are the fields from the dsadm fileinfo command output that are related to the size and attributes of the object as stored in the utility file system data set.
 
 The length in the fileinfo output indicates the number of bytes the object occupies inside the utility file system data set. In DSFS, directories are files that contain names of objects inside the directory and pointers to their location inside the utility file system.
-· For HLQ, path and PDSE directories, the more names inside the directory, the larger it will be.
-· For PS files and PDS/PDSE members, the length reflects the size of the file after it was converted to POSIX byte-stream format based on the path that was chosen to access the object. For files that have not been read and converted to POSIX byte-stream format, the length will be 0.
+Â· For HLQ, path and PDSE directories, the more names inside the directory, the larger it will be.
+Â· For PS files and PDS/PDSE members, the length reflects the size of the file after it was converted to POSIX byte-stream format based on the path that was chosen to access the object. For files that have not been read and converted to POSIX byte-stream format, the length will be 0.
 1K blocks indicates how much space is taken inside the utility file system, including internal control structures. DSFS uses additional control structures for larger objects on disk to locate sections of that object on disk and is the full measure of how much space that object occupies. For files (PS and PDS/ PDSE members), DSFS attempts to keep data in its file cache and to avoid writing it to the utility file system. For that reason, 1K blocks might be much smaller than the length would indicate due to this performance feature. If the file is fully cached in memory, this value might even be 0.
 DSFS also shows the encryption and compression status for objects in the utility file system. The utility file system must have a key label as a prerequisite for any object to be stored in encrypted format inside the utility file system. Similarly, for compression, the COMPRESS=ON parameter in the IDFPRMxx file must have been set before the utility file system data set is formatted during its first use by DSFS. Only files will show up as encrypted or compressed. DSFS does not encrypt or compress directories that are stored in its utility file system. If a file is compressed, the number of kilobytes of disk space that is saved is shown.
 Restriction: The fileinfo output only shows the encryption status of the DSFS object in the utility file system. It does not represent the encryption status of the data set the file represents.
@@ -805,11 +805,11 @@ The following example shows the z/OS UNIX-related fields from the fileinfo comma
 
 DSFS presents data sets in a file system tree that simulates z/OS UNIX protocols. It maps data sets to these attributes as follows:
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 39
 
-object type One of two values. · DIR (root directory, path directory, HLQ directory, or PDS/PDSE directory). · FILE (PS or PDS/PDSE member).
+object type One of two values. Â· DIR (root directory, path directory, HLQ directory, or PDS/PDSE directory). Â· FILE (PS or PDS/PDSE member).
 object linkcount Although data sets do not have link counts, z/OS UNIX objects do. The utility file system keeps the link count of directories equal to the number of subdirectories, and for PS and PDS/PDSE members the link count is always 1. Every z/OS UNIX directory has special entries for . (dot) and .. (dot dot) entries. PDS/PDSE directories will have a link count of 2 because the dot and dot dot entries are inserted into the utility file system directory that represents the PDS/PDSE.
 dir name count The number of objects in the directory, including the special dot and dot dot entries for directories. For files, the number is the value na.
 data set name type The type of data set that this DSFS object represents (PDS, LIBRARY, SEQ, MEMBER, or HLQ DIR).
@@ -849,10 +849,10 @@ data mode The processing mode, which is also the path that is chosen in the DSFS
 data set status For PS and PDS/PDSE members, this field indicates whether DSFS has retrieved the data set contents and converted them to a POSIX byte stream format. If true, then it has the value RETRIEVED. If not, then it has the value UNCACHED. For HLQ or PDS/PDSE directories, it has the value RETRIEVED. For other DSFS file system objects, the value na is shown.
 data set name Name of the data set, including member name if this is a member. For HLQ directories, this is the HLQ directory name, which consists of one or more qualifiers.
 ENQ held Indicates whether a dynamic allocation or ENQ is held on the data set. It is either the value NO, which means no ENQ is held, or in the form mode,ddname,userid,timestamp where:
-· mode is the enqueue mode: OLD for exclusive or SHR for shared access.
-· ddname is the dynamic ddname of the allocation.
-· userid is the 8-byte user ID of the user who accessed the file that caused the allocation to be obtained.
-· timestamp is the time when the ENQ was obtained.
+Â· mode is the enqueue mode: OLD for exclusive or SHR for shared access.
+Â· ddname is the dynamic ddname of the allocation.
+Â· userid is the 8-byte user ID of the user who accessed the file that caused the allocation to be obtained.
+Â· timestamp is the time when the ENQ was obtained.
 
 Timestamps
 DSFS attempts to use ISPF statistic timestamps and DFSMS catalog entry timestamps as the z/OS UNIX equivalents of atime, mtime, and ctime.
@@ -883,7 +883,7 @@ FILECACHE Provides performance information for the file cache including cache hi
 IOBYDASD Displays the I/O statistics by currently attached DASD volumes including the total number of waits for I/O and the average wait time per I/O.
 KNPFS (or KN) Provides counts of calls that are made to DSFS from z/OS UNIX and the average response time of each call. This information is the basic measure of DSFS performance.
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 43
 
@@ -1133,15 +1133,15 @@ IDFS00xxx messages are issued by the DSFS hang detector and generally remain on 
 1. The delayed task completes without any external correction. This situation is a slowdown and not a hang. Discard any DSFS system dumps.
 2. The delayed task is canceled. In these cases, you should supply any system dump taken by DSFS to IBM service for diagnosis.
 For delays, DSFS issues several messages to attempt to diagnose what might be involved in the delay. A delay might occur when:
-· DSFS invokes another component such as allocation, open/close, or global resource serialization. In this case, DSFS issues message IDFS00159I or IDFS00164I to recommend that you use the other component's diagnosis material to determine the cause of the delay. DSFS does not produce a dump.
-· There is heavy system activity with higher priority tasks that are delaying lower priority tasks or a delay in another system service that is not covered by message IDFS00159I. In this case, DSFS issues message IDFS00160I, but does not produce a dump.
+Â· DSFS invokes another component such as allocation, open/close, or global resource serialization. In this case, DSFS issues message IDFS00159I or IDFS00164I to recommend that you use the other component's diagnosis material to determine the cause of the delay. DSFS does not produce a dump.
+Â· There is heavy system activity with higher priority tasks that are delaying lower priority tasks or a delay in another system service that is not covered by message IDFS00159I. In this case, DSFS issues message IDFS00160I, but does not produce a dump.
 Chapter 8. Monitoring and tuning performance 49
 
 Steps for diagnosing and resolving a DSFS hang
 Perform these steps when a hang condition is suspected. 1. Continually monitor for the following messages:
-· IDFS00146I. DSFS has a potentially hanging thread that is caused by UserList, where UserList is a list of address space IDs and TCB addresses causing the hang.
-· IDFS00159I or IDFS00164I. The delay is outside of DSFS. DSFS called the identified system service and is waiting for a response. Investigate the identified system service. The problem is likely not with DSFS.
-· IDFS00160I. The delay is either in DSFS or in a system service that DSFS did not specifically identify in message IDFS00159I. DSFS cannot determine whether there is a hang, a slowdown, or some other system problem. To act, look for other symptoms. For example, if you see messages about components that are using a significant amount of auxiliary storage, resolve the auxiliary storage shortage. If the message persists, continue to the next step.
+Â· IDFS00146I. DSFS has a potentially hanging thread that is caused by UserList, where UserList is a list of address space IDs and TCB addresses causing the hang.
+Â· IDFS00159I or IDFS00164I. The delay is outside of DSFS. DSFS called the identified system service and is waiting for a response. Investigate the identified system service. The problem is likely not with DSFS.
+Â· IDFS00160I. The delay is either in DSFS or in a system service that DSFS did not specifically identify in message IDFS00159I. DSFS cannot determine whether there is a hang, a slowdown, or some other system problem. To act, look for other symptoms. For example, if you see messages about components that are using a significant amount of auxiliary storage, resolve the auxiliary storage shortage. If the message persists, continue to the next step.
 _______________________________________________________________ 2. Enter the MODIFY DSFS,QUERY,THREADS command to determine whether any DSFS threads are
 hanging and why. The type and amount of information that is displayed because of this command is for internal use and can vary between releases or service levels. For an example of the command output, see Figure 7 on page 51. _______________________________________________________________ 3. Enter the DISPLAY A,DSFS command to determine the DSFS ASID. _______________________________________________________________ 4. Enter MODIFY DSFS,QUERY,THREADS,OLDEST at one to two-minute intervals for six minutes. _______________________________________________________________ 5. Check the output for any user tasks (tasks that do not show the DSFS ASID) that are repeatedly in the same state during the time you requested MODIFY DSFS,QUERY,THREADS,OLDEST. If there is a hang, the task that is hanging persists unchanged over the course of this time span. If the information is different each time, there is no hang. _______________________________________________________________ 6. Check whether any user tasks are hung, focusing on the tasks that are identified by message IDFS00146I or message IDFS00164I. User tasks do not have the same address space identifier (ASID) as the DSFS address space. One or more threads consistently at the same location might indicate a hang (for example, Recov, TCB, ASID Stack, Routine, State). The threads in the DSFS address space with the DSFS ASID (for example, xcf_server) are typically waiting for work. It is typical for the routine these threads are waiting in to have the same name as the entry routine, as shown in the following example. If successive iterations of the MODIFY DSFS,QUERY,THREADS,OLDEST command show that the STK/Recov, TCB, ASID, Routine, and State for a thread are constant, it is probable that this thread is hung.
 50 z/OS: z/OS Data Set File System Administration
@@ -1207,8 +1207,8 @@ In addition, the DSFS hang detector periodically checks a warning limit and a cr
 
 Chapter 8. Monitoring and tuning performance 51
 
-IDFS00166I is displayed and remains on the console until storage usage goes under the critical limit to the warning limit and message IDFS00165I is displayed again. See "Displaying memory usage" on page 47 for more information about how to determine the amount of storage that is being used in the DSFS address space. A DSFS storage shortage can be caused by many issues. If the size of the file cache is larger than the default size, try using the dsadm config command to reduce its size. If this action does not relieve the problem, collect a dump and restart DSFS with the MODIFY DSFS,ABORT command. Report the problem to IBM service. Tips: · Changing the size of the file cache can cause delays. Try to change the size during low activity periods. · In general, if you see a return code 132 (ENOMEM), DSFS is short on storage. Take steps to reduce DSFS
-storage usage. When storage shortages become critical, you can also see return code 157 (EMVSERR). · Started subtasks, such as the DSFS colony address space, fall under SUBSYS STC. These address
+IDFS00166I is displayed and remains on the console until storage usage goes under the critical limit to the warning limit and message IDFS00165I is displayed again. See "Displaying memory usage" on page 47 for more information about how to determine the amount of storage that is being used in the DSFS address space. A DSFS storage shortage can be caused by many issues. If the size of the file cache is larger than the default size, try using the dsadm config command to reduce its size. If this action does not relieve the problem, collect a dump and restart DSFS with the MODIFY DSFS,ABORT command. Report the problem to IBM service. Tips: Â· Changing the size of the file cache can cause delays. Try to change the size during low activity periods. Â· In general, if you see a return code 132 (ENOMEM), DSFS is short on storage. Take steps to reduce DSFS
+storage usage. When storage shortages become critical, you can also see return code 157 (EMVSERR). Â· Started subtasks, such as the DSFS colony address space, fall under SUBSYS STC. These address
 spaces might be subject to IEFUSI limitations if IEFUSI exits are allowed for SUBSYS STC. IBM strongly recommends that you always set REGION=0M and MEMLIMIT=NOLIMIT for the DSFS colony address space.
 Disabling the utility file system
 If DSFS detects a problem with the utility file system, or a problem that could lead to corruption of the utility file system, DSFS disables it for access and application requests are failed. Message IDFS00131E is issued, as shown in the following example.
@@ -1224,13 +1224,13 @@ Access to JES spool data sets in the z/OS UNIX file system tree is done with the
 1. DSFS places a high-level qualifier directory name in the sysout path directory if the user application changes the working directory or uses a path name that specifies the high-level qualifier directory name in that path. The high-level qualifier directory name is the user ID of the requesting user or application. Once the high-level qualifier directory has been created, it cannot be removed. The user ID of the requesting user or application must match the name of a high-level qualifier directory name in order to be allowed access to it. The high-level qualifier directory names in the sysout path are not subject to the HLQ exclude list.
 2. DSFS populates high-level directories with the jobs on the JES spool that are owned by the user ID and are not being purged. The name of these job directories takes the form jobname.jesjobid, where jobname is the job name that is specified on the JCL job statement and jesjobid is the job ID that is assigned to the job by JES. The contents of the high-level directory are refreshed each time the directory is accessed.
 3. DSFS populates job directories with names that represent job output data sets. These names are also referred to as sysout files. Input and dummy data sets are ignored.
-· The naming convention for the sysout files that represent the system spool data sets is ddname.dskey, where the ddname and dskey values are both assigned by JES.
-· The naming convention for the regular sysout files is stepname.ddname.dskey, where stepname is the name from the JCL execution statement, ddname is the name from JCL data definition statements, and dskey is a data set key assigned to the JES spool data set by the primary JES.
+Â· The naming convention for the sysout files that represent the system spool data sets is ddname.dskey, where the ddname and dskey values are both assigned by JES.
+Â· The naming convention for the regular sysout files is stepname.ddname.dskey, where stepname is the name from the JCL execution statement, ddname is the name from JCL data definition statements, and dskey is a data set key assigned to the JES spool data set by the primary JES.
 By using JCL statements, JES can create duplicate spool data sets for use in JES output grouping. These duplicate spool data sets are considered by DSFS as one file and are represented by only one sysout file name. Job directory contents are refreshed each time the job directory is accessed. These sysout file names can be used with standard z/OS UNIX commands and tools to read the data in the spool data sets.
 Restriction: DSFS does not support creation parameters on high-level qualifier directories in the sysout path directory.
 The following graphic shows an example of the directory path and associated sysout files for a specified job.
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 53
 
@@ -1318,8 +1318,8 @@ SUIMGVY.SUIMGVY2.JOB01922.D0000102.?
 
 The attribute fields have the following values:
 object type One of two values:
-· DIR for HLQ or job directories.
-· FILE for sysout files.
+Â· DIR for HLQ or job directories.
+Â· FILE for sysout files.
 object linkcount Although data sets do not have link counts, z/OS UNIX objects do. The utility file system keeps the link count of directories equal to the number of subdirectories. For SYSOUT files the link count is always 1. Every z/OS UNIX directory has special entries for . (dot) and .. (dot dot) entries. Job directories have a link count of 2 because the dot and dot dot entries are inserted into the utility file system directory that represents the job.
 dir name count The number of objects in the directory, including the special dot and dot dot entries for directories. For SYSOUT files, the number is the value na.
 data set name type The type of data set that this DSFS object represents (HLQ DIR, JOB DIR, or SYSOUT FILE).
@@ -1336,19 +1336,19 @@ Chapter 9. JES spool data sets 55
 Part 2. DSFS administration reference
 This part of the document discusses reference information for Data Set File System (DSFS).
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 57
 
 58 z/OS: z/OS Data Set File System Administration
 
 Chapter 10. z/OS system commands
-These system commands are available. · MODIFY DSFS PROCESS queries internal counters and values. Use it to initiate or gather debugging
-information. · MODIFY OMVS,STOPPFS=DSFS. Use it to stop DSFS. · SETOMVS RESET starts the DSFS physical file system (PFS) if it has not been started at IPL, or if the PFS
-was stopped and the BPXF032D message was responded to with a reply of i. · SET OMVS=xx where xx is the BPXPRMxx member that contains the FILESYSTYPE and/or MOUNT
+These system commands are available. Â· MODIFY DSFS PROCESS queries internal counters and values. Use it to initiate or gather debugging
+information. Â· MODIFY OMVS,STOPPFS=DSFS. Use it to stop DSFS. Â· SETOMVS RESET starts the DSFS physical file system (PFS) if it has not been started at IPL, or if the PFS
+was stopped and the BPXF032D message was responded to with a reply of i. Â· SET OMVS=xx where xx is the BPXPRMxx member that contains the FILESYSTYPE and/or MOUNT
 statement for DSFS. Run these commands from the console or from System Display and Search Facility (SDSF).
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 59
 
@@ -2356,15 +2356,15 @@ Ratio Ratio of hits to requests, expressed as a percentage, the higher the bette
 Allocates The number of requests to allocate a new vnode for an object rather than reusing an existing vnode structure that represented another object.
 Deletes The number of times a request was made to delete a vnode from the cache.
 Total osi_getvnode Calls The number of times that DSFS paired one of its vnodes with the corresponding z/OS UNIX structure. Osi_getvnode is a z/OS UNIX function. The following fields are related to this field.
-· High resp. Count of times that DSFS finds a high response time (greater than 1 second) for an osi_getvnode call.
+Â· High resp. Count of times that DSFS finds a high response time (greater than 1 second) for an osi_getvnode call.
 
 Chapter 10. z/OS system commands 73
 
 MODIFY DSFS QUERY,LOCK
-· Avg Call Time. Average response time in milliseconds of osi_getvnode calls that DSFS makes.
+Â· Avg Call Time. Average response time in milliseconds of osi_getvnode calls that DSFS makes.
 Total SAF Calls The number of times that DSFS makes a SAF call related to security checking of application access to data sets. These calls could be to set up or tear down a security context to represent a requesting user or make a security query of some sort. The following fields are related to this field.
-· High resp. Count of times that DSFS finds a high response time (greater than 1 second) for a SAF call.
-· Avg Call Time . Average response time in milliseconds of SAF calls that DSFS makes.
+Â· High resp. Count of times that DSFS finds a high response time (greater than 1 second) for a SAF call.
+Â· Avg Call Time . Average response time in milliseconds of SAF calls that DSFS makes.
 Additionally, the QUERY,LFS command shows the performance of its internal metadata cache that is used to cache directory contents and other utility file system disk structures. It caches entire blocks from the utility file system data set, where a block is 8 K in size. The description of these fields is as follows.
 Buffers The number of 8 K buffers in the cache.
 K Bytes The total number of bytes in the cache (number of buffers multiplied by 8 K).
@@ -2894,14 +2894,14 @@ MODE The mode must be RDWR for DSFS or the MODE parameter that is omitted which 
 Usage notes
 1. The first time the utility file system is used, DSFS will format the file system for its use.
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 81
 
 MOUNT
 
-· If the data set has a key label, then DSFS will initialize the file system so that it encrypts any file contents that are stored in the utility file system. DSFS must have access to the key label.
-· If the COMPRESS=ON IDFPRMxx parameter option is specified and the file system has not been formatted yet (first mount) then the file system is initialized so that any file contents are stored in compressed format in the file system. COMPRESS only affects first-time mounts of the utility file system. DSFS also attempts to fix its file cache in memory by using zEDC services to allow for compression.
+Â· If the data set has a key label, then DSFS will initialize the file system so that it encrypts any file contents that are stored in the utility file system. DSFS must have access to the key label.
+Â· If the COMPRESS=ON IDFPRMxx parameter option is specified and the file system has not been formatted yet (first mount) then the file system is initialized so that any file contents are stored in compressed format in the file system. COMPRESS only affects first-time mounts of the utility file system. DSFS also attempts to fix its file cache in memory by using zEDC services to allow for compression.
 2. After the mount, DSFS will check the IDFPRMxx configuration file for the FSFULL parameter setting. If FSFULL is set, DSFS initializes the utility file system to report space usage based on the FSFULL setting.
 
 Example 1
@@ -3042,9 +3042,9 @@ Usage notes
 2. For a batch job, the dsadm options are specified in the EXEC PARM as a single subparameter (a single character string enclosed in apostrophes with no commas separating the options). You cannot put the ending apostrophe in column 72. If it needs to go to the next line, use a continuation character in column 72 (continuing in column 16 with the ending apostrophe on the second line). Remember that a JCL EXEC PARM is limited to 100 characters. For more information about EXEC PARM, see PARM parameter in z/OS MVS JCL Reference.
 3. dsadm commands are serialized with each other. When a dsadm command is in progress, a subsequent dsadm command is delayed until the active dsadm command completes. This also does not include long-running dsadm commands such as dsadm salvage. dsadm commands do not delay normal file system activity (except when the dsadm command requires it, such as dsadm salvage).
 4. When supplying an argument to a dsadm command, the option (for example -path for the dsadm createparm command) that is associated with the argument can be omitted if:
-· All arguments that are supplied with the command are entered in the order in which they appear in the command's syntax. (The syntax for each command is provided.)
-· Arguments are supplied for all options that precede the option to be omitted. · All options that precede the option to be omitted accept only a single argument. · No options, either those that accept an argument or those that do not, are supplied before the option
-to be omitted. · The first option cannot be followed by an additional option before the vertical bar.
+Â· All arguments that are supplied with the command are entered in the order in which they appear in the command's syntax. (The syntax for each command is provided.)
+Â· Arguments are supplied for all options that precede the option to be omitted. Â· All options that precede the option to be omitted accept only a single argument. Â· No options, either those that accept an argument or those that do not, are supplied before the option
+to be omitted. Â· The first option cannot be followed by an additional option before the vertical bar.
 In the case where two options are presented in
 { | }
 (braces separated by a vertical bar), the option associated with the first argument can be omitted if that argument is provided. However, the option associated with the second argument is required if that argument is provided.
@@ -3053,11 +3053,11 @@ be set and the name of the option cannot be omitted. (See "dsadm config " on pag
 84 z/OS: z/OS Data Set File System Administration
 
 dsadm
-If it must be specified, an option can be abbreviated to the shortest possible form that distinguishes it from other options of the command. For example, the -path option found in some dsadm commands can typically be omitted or abbreviated to be simply -p. It is also valid to abbreviate a command name to the shortest form that still distinguishes it from the other command names in the suite. For example, it is acceptable to shorten the dsadm salvage command to dsadm because no other command names in the dsadm command suite begin with the letter s. However, there are two dsadm commands that begin with f: dsadm fileinfo and dsadm fsinfo. To remain unambiguous, they can be abbreviated to dsadm fi and dsadm fs. The following examples illustrate three acceptable ways to enter the same dsadm salvage command: · Complete command:
+If it must be specified, an option can be abbreviated to the shortest possible form that distinguishes it from other options of the command. For example, the -path option found in some dsadm commands can typically be omitted or abbreviated to be simply -p. It is also valid to abbreviate a command name to the shortest form that still distinguishes it from the other command names in the suite. For example, it is acceptable to shorten the dsadm salvage command to dsadm because no other command names in the dsadm command suite begin with the letter s. However, there are two dsadm commands that begin with f: dsadm fileinfo and dsadm fsinfo. To remain unambiguous, they can be abbreviated to dsadm fi and dsadm fs. The following examples illustrate three acceptable ways to enter the same dsadm salvage command: Â· Complete command:
 dsadm salvage -verifyonly
-· Abbreviated options:
+Â· Abbreviated options:
 dsadm s -v
-· Omitted argument:
+Â· Omitted argument:
 dsadm salvage
 6. The ability to abbreviate or omit options is intended for interactive use. If you embed commands in a shell script, do not omit options or abbreviate them. If an option is added to a command in the future, it might increase the minimum unique abbreviation that is required for an existing option or change the order of options.
 Receiving help
@@ -3066,8 +3066,8 @@ Displays a list of commands in a command suite. dsadm help -topic command
 Displays the syntax for one or more commands. dsadm apropos -topic string
 Displays a short description of any commands that match the specified string. When the dsadm command displays help text or a syntax error message, it will show the name of the command as IDFZADM, instead of dsadm. This occurs because the dsadm command is not a binary module in the z/OS UNIX file system. Rather, it is a shell script that invokes IDFZADM. IDFZADM is an entry that has the sticky bit on in the permissions. The sticky bit means that the IDFZADM module is found and executed from the user's STEPLIB, link pack area, or link list concatenation. (IDFZADM is typically located in SYS1.SIEALNKE.) However, you cannot run IDFZADM from the shell because IDFZADM is not normally in your PATH.
 Privilege required
-dsadm commands that query information (for example, fileinfo, fsinfo) usually do not require the issuer to have any special authority. dsadm commands that modify (for example, salvage) usually require the issuer to have one of the following authorizations: · UID of 0. If you are permitted READ to the BPX.SUPERUSER resource in the RACF® FACILITY class, you
-can become a UID of 0 by issuing the su command. · READ authority to the SUPERUSER.FILESYS.PFSCTL resource in the z/OS UNIXPRIV class.
+dsadm commands that query information (for example, fileinfo, fsinfo) usually do not require the issuer to have any special authority. dsadm commands that modify (for example, salvage) usually require the issuer to have one of the following authorizations: Â· UID of 0. If you are permitted READ to the BPX.SUPERUSER resource in the RACFÂ® FACILITY class, you
+can become a UID of 0 by issuing the su command. Â· READ authority to the SUPERUSER.FILESYS.PFSCTL resource in the z/OS UNIXPRIV class.
 Chapter 11. DSFS commands 85
 
 dsadm
@@ -3119,14 +3119,14 @@ Options
 -directory_pool size <number> Specifies the number of processing threads used to handle directory requests that require access to DFSMS data sets or catalogs.
 -directory_refresh_timeout <number> Specifies the length of time in seconds between successive catalog searches to verify that the DSFS cached directory contents match those of the catalog for HLQ directories. It is also the length of time in seconds between successive PDSE directory searches to verify that the DSFS cached directory contents match those of the PDSE data set.
 -enable sysout <on | off> Specifies whether users are allowed to access JES spool data sets.
--filecache_size <cache_size [,fixed|,edcfixed]> Specifies the size, in bytes, of the cache that is used to contain file data. The fixed and edcfixed options can fix the file cache in real memory: · The fixed option avoids page fix and page unfix for disk I/Os that do not use compression. · The edcfixed option avoids page fix and page unfix for disk I/Os that use compression. It also avoids data movement for compression I/Os. DSFS will automatically fix the cache in edcfixed format if the utility file system is enabled for compression.
+-filecache_size <cache_size [,fixed|,edcfixed]> Specifies the size, in bytes, of the cache that is used to contain file data. The fixed and edcfixed options can fix the file cache in real memory: Â· The fixed option avoids page fix and page unfix for disk I/Os that do not use compression. Â· The edcfixed option avoids page fix and page unfix for disk I/Os that use compression. It also avoids data movement for compression I/Os. DSFS will automatically fix the cache in edcfixed format if the utility file system is enabled for compression.
 -fsfull <(threshold,increment) | off> Specifies the threshold and increment when sending file system utilization messages to the operator.
--hlq_list_add [ <hlq1,hlq2,...> ] Allows the administrator to add high-level qualifiers that are to be excluded. The -hlq_list_add and -hlq_list_remove options are mutually exclusive. They cannot be specified at the same time with the same dsadm config command. · The high-level qualifiers that are listed must be separated by commas with no intervening spaces. · The specified high-level qualifiers can consist of one or more qualifiers. · The HLQ directories associated with the high-level qualifiers that were added to the list are removed from the tree after users finish accessing objects in the subtree anchored at the HLQ tree node.
+-hlq_list_add [ <hlq1,hlq2,...> ] Allows the administrator to add high-level qualifiers that are to be excluded. The -hlq_list_add and -hlq_list_remove options are mutually exclusive. They cannot be specified at the same time with the same dsadm config command. Â· The high-level qualifiers that are listed must be separated by commas with no intervening spaces. Â· The specified high-level qualifiers can consist of one or more qualifiers. Â· The HLQ directories associated with the high-level qualifiers that were added to the list are removed from the tree after users finish accessing objects in the subtree anchored at the HLQ tree node.
 88 z/OS: z/OS Data Set File System Administration
 
 dsadm config
 -hlq_list_remove <hlq1,hlq2,...> Allows the administrator to remove high-level qualifiers from the list. The -hlq_list_add and -hlq_list_remove options are mutually exclusive. They cannot be specified at the same time with the same dsadm config command.
-· The high-level qualifiers that are listed must be separated by commas with no intervening spaces. · The specified high-level qualifiers can consist of one or more qualifiers.
+Â· The high-level qualifiers that are listed must be separated by commas with no intervening spaces. Â· The specified high-level qualifiers can consist of one or more qualifiers.
 -io_pool_size <number> Specifies the number of DSFS worker threads that are used to process data set IO requests using the QSAM access methods.
 -ispf_extended_statistics <ON | OFF> Specifies whether DSFS should retrieve and store ISPF extended statistics when processing PDS and PDSE members.
 -pds_enq_duration <number> Specifies the number of seconds that DSFS will hold enqueues on PDS/PDSE data sets, which allows DSFS to cache their directory contents for that period of time and reduce the number of calls to read the PDS/PDSE data set directory.
@@ -3226,7 +3226,7 @@ Options
 dsadm createparm
 -help Prints the online help for this command. All other valid options that are specified with this option are ignored.
 Usage notes
-1. DSFS checks the syntax of the creation string before it attempts to save the string. Additionally, DSFS ensures it represents a data set that DSFS supports. · RECFM must have the value F, FB, FBA, FS, FBS, V, VB, VBA, or U and must exist in the string. · DSORG must have the value PS or PO and must exist in the string.
+1. DSFS checks the syntax of the creation string before it attempts to save the string. Additionally, DSFS ensures it represents a data set that DSFS supports. Â· RECFM must have the value F, FB, FBA, FS, FBS, V, VB, VBA, or U and must exist in the string. Â· DSORG must have the value PS or PO and must exist in the string.
 2. Although DSFS checks the syntax of the string before storing it, it is still possible for the user to create a data set string that might be created by DFSMS but are not usable by the QSAM access method. For example, a data set that has a RECFM(FB), LRECL and BLKSIZE that might specify a record length that is not evenly divisible by the block size. DFSMS will allow creation of the data set but the data set cannot be processed by DSFS. Thus, users must be careful when they specify the data set attributes.
 3. DSFS will store at most one string in the utility file system for a psmodel and at most one string for a pdsmodel creation string per HLQ directory. If a user performs a dsadm createparm for a psmodel/pdsmodel string and a psmodel or pdsmodel creation string exists, it is replaced by the new string.
 4. The dsadm fileinfo command can be used to display the current creation strings for an HLQ directory.
@@ -3399,8 +3399,8 @@ Files Files show length only if the object was opened for processing by applicat
 Chapter 11. DSFS commands 97
 
 dsadm fileinfo
-· A file that is not open and was not recently accessed by an application shows a length of zero regardless of the length of the actual data set the file represents.
-· A file that is open or recently accessed by applications has a length that shows the length of the data set represented as a POSIX file.
+Â· A file that is not open and was not recently accessed by an application shows a length of zero regardless of the length of the actual data set the file represents.
+Â· A file that is open or recently accessed by applications has a length that shows the length of the data set represented as a POSIX file.
 format The storage method that is used to store the object contents in the utility file system. It can have one of the following values:
 INLINE Object is small and stored inside the anode in the utility file system.
 BLOCKED Object is blocked and stored as an array of blocks in the utility file system. DSFS uses trees to locate the blocks on disk, which takes a modest amount of extra disk space. Empty objects are represented by the BLOCKED indication.
@@ -3454,8 +3454,8 @@ atime The POSIX access time of the object that is stored in the utility file sys
 ctime The POSIX metadata change time of the object stored in the utility file system object.
 create date The POSIX create date of the object, which is the date that the object was created. For PDS and PDSE members, it is the create date that was stored in the ISPF statistics. For PS/PDS/PDSE data sets, it is the create date as stored in the catalog. If the create date is not available, it is the date that the object was first accessed in DSFS.
 encrypt/compress status The encryption and compression status of the object that is stored inside the utility file system.
-· For directories, not encrypted not compressed is shown as those objects are never encrypted or compressed.
-· For files that are not encrypted and not compressed, then not encrypted not compressed is shown. If the utility file system is encrypted, then the value encrypted is shown as the encryption indicator. If the file is compressed, then it shows the value compressed xxK saved, which indicates how much disk space was saved due to compression.
+Â· For directories, not encrypted not compressed is shown as those objects are never encrypted or compressed.
+Â· For files that are not encrypted and not compressed, then not encrypted not compressed is shown. If the utility file system is encrypted, then the value encrypted is shown as the encryption indicator. If the file is compressed, then it shows the value compressed xxK saved, which indicates how much disk space was saved due to compression.
 PDS model If the object is an HLQ directory, then a saved PDS model creation string is shown; else, the value 'na' is shown.
 PS model If the object is an HLQ directory, then a saved PS model creation string is shown; else the value 'na' is shown.
 vnode/vntok This field is the address of the internal data structures that represent the object in DSFS and z/OS UNIX.
@@ -3856,7 +3856,7 @@ Options
 Usage notes
 1. The dsadm help command displays the first line (name and short description) of the online help entry for every dsadm command if -topic is not provided. For each command name specified with -topic, the output lists the entire help entry.
 2. The online help entry for each dsadm command consists of the following two lines:
-· The first line names the command and briefly describes its function. · The second line, which begins with Usage:, lists the command options in the prescribed order. Use
+Â· The first line names the command and briefly describes its function. Â· The second line, which begins with Usage:, lists the command options in the prescribed order. Use
 the dsadm apropos command to show each help entry containing a specified string.
 
 Privilege required
@@ -3984,10 +3984,10 @@ Commands: dsadm fsinfo MOUNT
 
 The IDFFSPRM file lists the configuration options for the DSFS PFS. Because this file does not contain any mandatory information in this file, it is not required. The options all have defaults. However, if you need to specify any options (for tuning purposes, for example), you must have an IDFFSPRM file.
 DSFS allows for more than one method to specify the location of the IDFFSPRM configuration file. It uses the following criteria to determine which method to use.
-· If an IDFZPRM DD statement exists in the JCL, the data set that it defines will become the configuration file for the local system.
-· If there is no IDFZRPM DD statement, the IDFPRMxx parmlib members that are specified in the PARM string of the DSFS FILESYSTYPE statement are used.
-· If there is no PARM string on the DSFS FILESYSTYPE statement, parmlib member IDFPRM00 is used.
-· If there is no IDFPRM00 parmlib member, no DSFS configuration data is used.
+Â· If an IDFZPRM DD statement exists in the JCL, the data set that it defines will become the configuration file for the local system.
+Â· If there is no IDFZRPM DD statement, the IDFPRMxx parmlib members that are specified in the PARM string of the DSFS FILESYSTYPE statement are used.
+Â· If there is no PARM string on the DSFS FILESYSTYPE statement, parmlib member IDFPRM00 is used.
+Â· If there is no IDFPRM00 parmlib member, no DSFS configuration data is used.
 The location of the IDFFSPRM file can be specified by the IDFZPRM DD statement in the DSFS PROC. However, the preferred method for specifying the DSFS configuration file is to use the IDFPRMxx parmlib member as described in "Processing options for IDFFSPRM and IDFPRMxx" on page 112. If you still want to use a single IDFFSPRM file, specify the IDFZPRM DD statement in your JCL. The IDFFSPRM file is typically a PDS member, so the IDFZPRM DD statement might look like the following example:
 //IDFZPRM DD DSN=SYS4.PVT.PARMLIB(IDFFSPRM),DISP=SHR
 If you need to have separate IDFFSPRM files and you want to share the DSFS PROC in a sysplex, you can use a system variable in the DSFS PROC so that it points to different IDFFSPRM files. The IDFZPRM DD might look like the following:
@@ -3999,7 +3999,7 @@ The preferred alternative to an IDFZPRM DDNAME is specifying the IDFFSPRM file a
 When the IDFFSPRM is specified in a DD statement, there can be only one IDFFSPRM file for each member of a sysplex. With PARMLIB, DSFS configuration options can be specified in a list of configuration parmlib files. This allows an installation to specify configuration options that are common among all members of the sysplex (for example, io_pool_size) in a shared IDFPRMxx member and configuration options that are system-specific in a separate, system-specific IDFPRMxx member. If a configuration option is specified more than once, the first one found is taken.
 The IDFPRMxx files are contained in the logical parmlib concatenation. The logical parmlib concatenation is a set of up to ten partitioned data sets defined by parmlib statements in the LOADxx member of
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 111
 
@@ -4034,7 +4034,7 @@ Specifies whether DSFS will allow users to access JES spool data sets. The expec
 ENABLE_SYSOUT=OFF
 The default value is ON.
 FILECACHE_SIZE
-Specifies the size in bytes of the cache that is used to contain file data. You can also specify a fixed option, which indicates that the pages are permanently fixed for performance. The fixed and edcfixed options can fix the file cache in real memory. · The fixed option avoids page fix and page unfix for disk I/Os that do not use compression. · The edcfixed option avoids page fix and page unfix for disk I/Os that use compression. It also
+Specifies the size in bytes of the cache that is used to contain file data. You can also specify a fixed option, which indicates that the pages are permanently fixed for performance. The fixed and edcfixed options can fix the file cache in real memory. Â· The fixed option avoids page fix and page unfix for disk I/Os that do not use compression. Â· The edcfixed option avoids page fix and page unfix for disk I/Os that use compression. It also
 avoids data movement for compression I/Os. If the edcfixed option is used, DSFS will wait during the initialization process for zEDC to be available. While it is waiting, DSFS will display message IDFS00306I. When zEDC is ready, DSFS will continue the initialization process. The expected value is a number in the range 10 MB - 65536 MB (64 G) if the edcfixed option is not used. If the edcfixed option is used, the file cache size should be in the range 10 MB - 14336 MB (14 G) due to zEDC compression limitations. K or M can be appended to the value to mean kilobytes or megabytes. For example,
 FILECACHE_SIZE=64M,FIXED
 For the default value, DSFS calculates 10% of real storage the system has available during DSFS initialization. If this amount is less than 256 M, then the default is 256 M. If this amount is between 256 M and 2048 M, then the default is 10% of real storage. If the amount is greater than 2048 M, then the default is 2048 M.
@@ -4120,7 +4120,7 @@ Chapter 12. The DSFS configuration file (IDFPRMxx or IDFFSPRM) 117
 Appendix A. Accessibility
 Accessible publications for this product are offered through IBM Documentation for z/OS (www.ibm.com/ docs/en/zos). If you experience difficulty with the accessibility of any z/OS documentation see How to Send Feedback to IBM to leave documentation feedback.
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 119
 
@@ -4141,7 +4141,7 @@ IBM may use or distribute any of the information you supply in any way it believ
 Licensees of this program who wish to have information about it for the purpose of enabling: (i) the exchange of information between independently created programs and other programs (including this one) and (ii) the mutual use of the information which has been exchanged, should contact:
 IBM Corporation Site Counsel 2455 South Road
 
-© Copyright IBM Corp. 2022, 2024
+Â© Copyright IBM Corp. 2022, 2024
 
 121
 
@@ -4174,15 +4174,15 @@ IBM Online Privacy Statement
 IBM Software products, including software as a service solutions, ("Software Offerings") may use cookies or other technologies to collect product usage information, to help improve the end user experience, to tailor interactions with the end user, or for other purposes. In many cases no personally identifiable information is collected by the Software Offerings. Some of our Software Offerings can help enable you to collect personally identifiable information. If this Software Offering uses cookies to collect personally identifiable information, specific information about this offering's use of cookies is set forth below.
 Depending upon the configurations deployed, this Software Offering may use session cookies that collect each user's name, email address, phone number, or other personally identifiable information for purposes of enhanced user usability and single sign-on configuration. These cookies can be disabled, but disabling them will also eliminate the functionality they enable.
 If the configurations deployed for this Software Offering provide you as customer the ability to collect personally identifiable information from end users via cookies and other technologies, you should seek your own legal advice about any laws applicable to such data collection, including any requirements for notice and consent.
-For more information about the use of various technologies, including cookies, for these purposes, see IBM's Privacy Policy at ibm.com®/privacy and IBM's Online Privacy Statement at ibm.com/privacy/details in the section entitled "Cookies, Web Beacons and Other Technologies," and the "IBM Software Products and Software-as-a-Service Privacy Statement" at ibm.com/software/info/product-privacy.
+For more information about the use of various technologies, including cookies, for these purposes, see IBM's Privacy Policy at ibm.comÂ®/privacy and IBM's Online Privacy Statement at ibm.com/privacy/details in the section entitled "Cookies, Web Beacons and Other Technologies," and the "IBM Software Products and Software-as-a-Service Privacy Statement" at ibm.com/software/info/product-privacy.
 Policy for unsupported hardware
 Various z/OS elements, such as DFSMSdfp, JES2, and MVSTM, contain code that supports specific hardware servers or devices. In some cases, this device-related element support remains in the product even after the hardware devices pass their announced End of Service date. z/OS may continue to service element code; however, it will not provide service related to unsupported hardware devices. Software problems related to these devices will not be accepted for service, and current service activity will cease if a problem is determined to be associated with out-of-support devices. In such cases, fixes will not be issued.
 Minimum supported hardware
 The minimum supported hardware for z/OS releases identified in z/OS announcements can subsequently change when service for particular servers or devices is withdrawn. Likewise, the levels of other software products supported on a particular release of z/OS are subject to the service support lifecycle of those
 Notices 123
 
-products. Therefore, z/OS and its product publications (for example, panels, samples, messages, and product documentation) can include references to hardware and software that is no longer supported. · For information about software support lifecycle, see: IBM Lifecycle Support for z/OS (www.ibm.com/
-software/support/systemsz/lifecycle) · For information about currently-supported IBM hardware, contact your IBM representative.
+products. Therefore, z/OS and its product publications (for example, panels, samples, messages, and product documentation) can include references to hardware and software that is no longer supported. Â· For information about software support lifecycle, see: IBM Lifecycle Support for z/OS (www.ibm.com/
+software/support/systemsz/lifecycle) Â· For information about currently-supported IBM hardware, contact your IBM representative.
 Trademarks
 IBM, the IBM logo, and ibm.com are trademarks or registered trademarks of International Business Machines Corp., registered in many jurisdictions worldwide. Other product and service names might be trademarks of IBM or other companies. A current list of IBM trademarks is available on the Web at Copyright and Trademark information (www.ibm.com/legal/copytrade.shtml). UNIX is a registered trademark of The Open Group in the United States and other countries.
 124 z/OS: z/OS Data Set File System Administration
@@ -4274,7 +4274,7 @@ Index 127
 
 z/OS Enterprise Data Compression services (zEDC) 27 128 z/OS: z/OS Data Set File System Administration
 
-IBM®
+IBMÂ®
 Product Number: 5655-ZOS
 GI13-5603-60
 
